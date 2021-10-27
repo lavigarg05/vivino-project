@@ -38,13 +38,17 @@ public class CommonStepDefs {
 	  
 	  @Before()
 	  public void before() {
+		  System.out.println("********************************START TEST****************************************");
 		  sa=new SoftAssert();
 	  }
 	  
 	  @After
 	  public void After(){
-		  driver.quit();
-		  sa.assertAll();		  
+		  //driver.quit();
+		  sa.assertAll();	
+		  System.out.println("********************************END TEST******************************************");
+		  System.out.println();
+		  System.out.println();
 	  }
 	  
 	  
@@ -78,6 +82,11 @@ public class CommonStepDefs {
 		  System.out.println("Keyword '"+keyword+"' search completed");
 	  }
 	
+	/**
+	 * Description : This glue code fetches data of all wine listed in search result.
+	 * The data is stored in data structure of type List<Map <String,String>> 
+	 * The fields stored for each item are : name, region, country, rating, ratingCount
+	 */
 	@When("^collect information of all wines$")
 	public void collectInfo() {
 		System.out.println("collecting info for items displayed on search results");
@@ -94,8 +103,8 @@ public class CommonStepDefs {
 			
 			Map<String,String> itemMap=new HashMap<String,String>();
 			title=SearchPage.getEachItem(driver, i).getText();
-			
-			Assert.assertTrue("Region and country for item "+i+" not found", SearchPage.getEachItemRegion(driver, i).size()>0);
+			System.out.println("Fetching info for wine "+i+": "+title);
+			Assert.assertTrue("Region or country for item "+i+" not found", SearchPage.getEachItemRegion(driver, i).size()==2);
 			
 			Assert.assertNotEquals("Average rating for item "+i+" not found", SearchPage.getEachItemAverageRating(driver, i),null);
 			Assert.assertNotEquals("Average Rating Count for item "+i+" not found", SearchPage.getEachItemAverageRatingCount(driver, i),null);
@@ -116,6 +125,10 @@ public class CommonStepDefs {
 	}		
 	
 	
+	/**
+	 * @param Keyword : Keyword to be verified
+	 * Description : this glue code verifies whether given keyword is included in title or region or country of each wine present in search result
+	 */
 	@Then("^verify each wine data for \"(.*)\"$")
 	public void verifyItemdata(String Keyword) {
 		
@@ -152,6 +165,9 @@ public class CommonStepDefs {
 		}
 	}
 	
+	/**
+	 * Description : This glue code selects a random wine from the search result
+	 */
 	@When("^select a random wine$")
 	public void selectItem() {
 		Random random = new Random();
@@ -162,6 +178,10 @@ public class CommonStepDefs {
 			
 	}
 	
+	/**
+	 * Description : This glue code collects data for selcted wine and stores in structure Map<String,String> selectedItem . This map has keys - name ,rating, ratingCount
+	 * All locations found on selected item is stored in List<String> listLocations
+	 */
 	@When("^collect information for selected wine$")
 	public void selectItemInfo() {
 		
@@ -181,6 +201,10 @@ public class CommonStepDefs {
 		//System.out.println(selectedItem);
 	}
 	
+	/**
+	 * Description : This glue code compares data between - data of wine selected on search result page (Map<String,String> searchedItem) TO data found on wine specific page after wine is selected(Map<String,String> selectedItem) 
+	 * It also checks if keyword is present in data of selected wine
+	 */
 	@Then("^verify selected wine data$")
 	public void final_verification(){
 		
