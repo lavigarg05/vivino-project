@@ -44,7 +44,7 @@ public class CommonStepDefs {
 	  
 	  @After
 	  public void After(){
-		  //driver.quit();
+		  driver.quit();
 		  sa.assertAll();	
 		  System.out.println("********************************END TEST******************************************");
 		  System.out.println();

@@ -12,7 +12,7 @@
         "before": [
           {
             "result": {
-              "duration": 5477900,
+              "duration": 4822600,
               "status": "passed"
             },
             "match": {
@@ -27,7 +27,7 @@
         "after": [
           {
             "result": {
-              "duration": 106100,
+              "duration": 173600,
               "status": "passed"
             },
             "match": {
@@ -40,7 +40,7 @@
         "steps": [
           {
             "result": {
-              "duration": 7281066300,
+              "duration": 7407351400,
               "status": "passed"
             },
             "line": 7,
@@ -66,15 +66,15 @@
           },
           {
             "result": {
-              "duration": 3375300600,
+              "duration": 3477652200,
               "status": "passed"
             },
             "line": 8,
-            "name": "Search for \"New Wines\"",
+            "name": "Search for \"California\"",
             "match": {
               "arguments": [
                 {
-                  "val": "New Wines",
+                  "val": "California",
                   "offset": 12
                 }
               ],
@@ -87,9 +87,8 @@
           },
           {
             "result": {
-              "duration": 10237867600,
-              "error_message": "java.lang.AssertionError: Average rating for item 1 not found. Actual: null\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failEquals(Assert.java:185)\r\n\tat org.junit.Assert.assertNotEquals(Assert.java:161)\r\n\tat stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:104)\r\n\tat ✽.And collect information of all wines(SearchWine.feature:9)\r\n",
-              "status": "failed"
+              "duration": 4338278300,
+              "status": "passed"
             },
             "line": 9,
             "name": "collect information of all wines",
@@ -100,14 +99,15 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 6183200,
+              "status": "passed"
             },
             "line": 10,
-            "name": "verify each wine data for \"New Wines\"",
+            "name": "verify each wine data for \"California\"",
             "match": {
               "arguments": [
                 {
-                  "val": "New Wines",
+                  "val": "California",
                   "offset": 27
                 }
               ],
@@ -120,7 +120,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 175268700,
+              "status": "passed"
             },
             "line": 11,
             "name": "select a random wine",
@@ -131,7 +132,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 33625464900,
+              "status": "passed"
             },
             "line": 12,
             "name": "collect information for selected wine",
@@ -142,7 +144,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 884200,
+              "status": "passed"
             },
             "line": 13,
             "name": "verify selected wine data",
@@ -163,7 +166,7 @@
         "before": [
           {
             "result": {
-              "duration": 85500,
+              "duration": 292600,
               "status": "passed"
             },
             "match": {
@@ -178,7 +181,7 @@
         "after": [
           {
             "result": {
-              "duration": 54100,
+              "duration": 51600,
               "status": "passed"
             },
             "match": {
@@ -191,7 +194,7 @@
         "steps": [
           {
             "result": {
-              "duration": 10466575600,
+              "duration": 11492571200,
               "status": "passed"
             },
             "line": 7,
@@ -217,15 +220,15 @@
           },
           {
             "result": {
-              "duration": 521624900,
+              "duration": 505267000,
               "status": "passed"
             },
             "line": 8,
-            "name": "Search for \"Australian\"",
+            "name": "Search for \"New Wines\"",
             "match": {
               "arguments": [
                 {
-                  "val": "Australian",
+                  "val": "New Wines",
                   "offset": 12
                 }
               ],
@@ -238,8 +241,8 @@
           },
           {
             "result": {
-              "duration": 4303257900,
-              "error_message": "java.lang.AssertionError: Region or country for item 14 not found\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.assertTrue(Assert.java:41)\r\n\tat stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:102)\r\n\tat ✽.And collect information of all wines(SearchWine.feature:9)\r\n",
+              "duration": 13050707500,
+              "error_message": "java.lang.AssertionError: Average rating for item 1 not found. Actual: null\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failEquals(Assert.java:185)\r\n\tat org.junit.Assert.assertNotEquals(Assert.java:161)\r\n\tat stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:109)\r\n\tat ✽.And collect information of all wines(SearchWine.feature:9)\r\n",
               "status": "failed"
             },
             "line": 9,
@@ -254,11 +257,11 @@
               "status": "skipped"
             },
             "line": 10,
-            "name": "verify each wine data for \"Australian\"",
+            "name": "verify each wine data for \"New Wines\"",
             "match": {
               "arguments": [
                 {
-                  "val": "Australian",
+                  "val": "New Wines",
                   "offset": 27
                 }
               ],

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="2" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="36.191416">
-<testcase classname="Search for a wine based on keyword" name="Search Wine" time="20.899818">
-<failure message="java.lang.AssertionError: Average rating for item 1 not found. Actual: null&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.failEquals(Assert.java:185)&#13;&#10;&#9;at org.junit.Assert.assertNotEquals(Assert.java:161)&#13;&#10;&#9;at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:104)&#13;&#10;&#9;at ✽.And collect information of all wines(SearchWine.feature:9)&#13;&#10;"><![CDATA[Given Launch website http://www.vivino.com in chrome browser................passed
+<testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="74.084969">
+<testcase classname="Search for a wine based on keyword" name="Search Wine" time="49.036079">
+<system-out><![CDATA[Given Launch website http://www.vivino.com in chrome browser................passed
+When Search for "California"................................................passed
+And collect information of all wines........................................passed
+Then verify each wine data for "California".................................passed
+When select a random wine...................................................passed
+And collect information for selected wine...................................passed
+Then verify selected wine data..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Search for a wine based on keyword" name="Search Wine 2" time="25.04889">
+<failure message="java.lang.AssertionError: Average rating for item 1 not found. Actual: null&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.failEquals(Assert.java:185)&#13;&#10;&#9;at org.junit.Assert.assertNotEquals(Assert.java:161)&#13;&#10;&#9;at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:109)&#13;&#10;&#9;at ✽.And collect information of all wines(SearchWine.feature:9)&#13;&#10;"><![CDATA[Given Launch website http://www.vivino.com in firefox browser...............passed
 When Search for "New Wines".................................................passed
 And collect information of all wines........................................failed
 Then verify each wine data for "New Wines"..................................skipped
@@ -14,24 +24,7 @@ java.lang.AssertionError: Average rating for item 1 not found. Actual: null
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failEquals(Assert.java:185)
 	at org.junit.Assert.assertNotEquals(Assert.java:161)
-	at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:104)
-	at ✽.And collect information of all wines(SearchWine.feature:9)
-]]></failure>
-</testcase>
-<testcase classname="Search for a wine based on keyword" name="Search Wine 2" time="15.291598">
-<failure message="java.lang.AssertionError: Region or country for item 14 not found&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at org.junit.Assert.assertTrue(Assert.java:41)&#13;&#10;&#9;at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:102)&#13;&#10;&#9;at ✽.And collect information of all wines(SearchWine.feature:9)&#13;&#10;"><![CDATA[Given Launch website http://www.vivino.com in firefox browser...............passed
-When Search for "Australian"................................................passed
-And collect information of all wines........................................failed
-Then verify each wine data for "Australian".................................skipped
-When select a random wine...................................................skipped
-And collect information for selected wine...................................skipped
-Then verify selected wine data..............................................skipped
-
-StackTrace:
-java.lang.AssertionError: Region or country for item 14 not found
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:102)
+	at stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:109)
 	at ✽.And collect information of all wines(SearchWine.feature:9)
 ]]></failure>
 </testcase>

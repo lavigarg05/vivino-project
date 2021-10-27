@@ -22,6 +22,10 @@
    Glue code is present in src/main/java/stepDefinitions
    Test Runner file is present at : /src/test/java/TestRunner.java
    To run the test --> TestRunner.java --> Run As --> JUnit Test
+   
+9) Current project uses chromeDriver.exe for Chrome Version 94.0.4606.81    
+   For firefox geckoDriver.exe is working for Firefox Version 93.0 
+   These exe files can be replaced based on your browser version at : /VivinoProject/browserExeFiles
 
 
 
