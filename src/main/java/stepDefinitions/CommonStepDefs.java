@@ -32,6 +32,8 @@ public class CommonStepDefs {
 	  private int itemCount;
 	  private SoftAssert sa;
 	  private int SelectedItem;
+	  private List<String> listLocations;
+	  private String keyword;
 	  Map<String,String> selectedItem=new HashMap<>();
 	  
 	  @Before()
@@ -41,7 +43,8 @@ public class CommonStepDefs {
 	  
 	  @After
 	  public void After(){
-		  sa.assertAll();
+		  driver.quit();
+		  sa.assertAll();		  
 	  }
 	  
 	  
@@ -58,8 +61,7 @@ public class CommonStepDefs {
 		  Assert.assertNotEquals("Driver object could not be created. Refer logs for more info.", driver, null);
 		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		  driver.manage().window().maximize();
-		  //driver.get(website);
-		  driver.get("https://www.vivino.com/eight-sides-eight-sides-viognier/w/3783627");
+		  driver.get(website);
 		  System.out.println("Website "+website +" launched successfully on browser "+browser);
 	  }
 	
@@ -69,13 +71,14 @@ public class CommonStepDefs {
 	 * @throws Throwable
 	 * description : search for given keyword.
 	 */
-	@When("^Search for (.*)$")
+	@When("^Search for \"(.*)\"$")
 	    public void searchForKeyword(String keyword) throws Throwable {
+		  this.keyword=keyword;
 		  HomePage.searchKeyword(driver, keyword);
 		  System.out.println("Keyword '"+keyword+"' search completed");
 	  }
 	
-	@When("^collect information of all items$")
+	@When("^collect information of all wines$")
 	public void collectInfo() {
 		System.out.println("collecting info for items displayed on search results");
 
@@ -113,11 +116,11 @@ public class CommonStepDefs {
 	}		
 	
 	
-	@Then("^verify item data for (.*)$")
+	@Then("^verify each wine data for \"(.*)\"$")
 	public void verifyItemdata(String Keyword) {
 		
 		String [] arrKeyword=Keyword.split(" ");
-		
+		System.out.println("Verifying each searched item contains keyword: "+Keyword+"...");
 		for(int i=0;i<itemCount;i++) {
 			int flag=0;
 			String title=itemData.get(i).get("name");
@@ -142,7 +145,7 @@ public class CommonStepDefs {
 			}
 			
 			if(flag==0) {
-				System.out.println("FAIL : No attribute of wine "+title+" contains keyword "+Keyword);
+				System.err.println("FAIL : No attribute of wine "+title+" contains keyword "+Keyword);
 			}
 			sa.assertEquals(flag, 1, "FAIL: No attribute of wine "+title+" contains keyword "+Keyword);
 			System.out.println();
@@ -153,20 +156,89 @@ public class CommonStepDefs {
 	public void selectItem() {
 		Random random = new Random();
 		SelectedItem=random.nextInt(itemCount) + 1;
-		SearchPage.getEachItem(driver, SelectedItem).click();
-	
+		WebElement itemSelected=SearchPage.getEachItem(driver, SelectedItem);	
+		System.out.println("Selected item : "+itemSelected.getText());
+		itemSelected.click();
+			
 	}
 	
-	@When("^collect information for selected item$")
+	@When("^collect information for selected wine$")
 	public void selectItemInfo() {
+		
+		System.out.println("Collecting data from selected item...");
+		
 		String headline=ItemPage.getTitle(driver).get(0).getText();
 		String vintage =ItemPage.getTitle(driver).get(1).getText();
-		List<String> listLocations = ItemPage.allLocations(driver);
-		
 		String title= headline.trim()+" "+vintage.trim();
+		listLocations = ItemPage.allLocations(driver);
+		String averageRating=ItemPage.getAverageRating(driver).getText();
+		String ratingCount=ItemPage.getRatingCount(driver).getText();
 		
 		selectedItem.put("name", title);
-		System.out.println(title);
-		System.out.println(listLocations);
+		selectedItem.put("rating", averageRating.trim());
+		selectedItem.put("ratingCount", ratingCount.trim());
+		//System.out.println(listLocations);
+		//System.out.println(selectedItem);
+	}
+	
+	@Then("^verify selected wine data$")
+	public void final_verification(){
+		
+		System.out.println("Verifying each attribute value is equal to one stored in the structure created earlier...");
+		Map<String,String> searchedItem=new HashMap<String,String>();
+		searchedItem=itemData.get(SelectedItem-1);
+		
+		//comparing titles
+		if(searchedItem.get("name").trim().equals(selectedItem.get("name").trim())) {
+			System.out.println("PASS: Searched item Title and Selected Item Title is same: "+selectedItem.get("name").trim());
+			if(selectedItem.get("name").trim().contains(keyword)) 
+				System.out.println("PASS: Selected item Title contains keyword: "+keyword);			
+		}
+		else 
+			System.err.println("FAIL: Searched item Title and Selected Item Title is different: "+selectedItem.get("name").trim()+" vs "+searchedItem.get("name").trim());
+			
+		//comparing region and country	
+		int regionFlag=0;
+		int countryFlag=0;
+		for(String location:listLocations) {
+			if(location.equals(searchedItem.get("region")))
+				regionFlag++;
+			if(location.equals(searchedItem.get("country")))
+				countryFlag++;			
+		}
+		
+		if(regionFlag==1) {
+			System.out.println("PASS: Searched item region and Selected Item region is same: "+searchedItem.get("region").trim());
+			if(searchedItem.get("region").trim().contains(keyword)) 
+				System.out.println("PASS: Selected item region contains keyword: "+keyword);			
+		}
+		else 
+			System.err.println("FAIL: region not present in selected item: "+searchedItem.get("region").trim());
+		
+		if(countryFlag==1) {
+			System.out.println("PASS: Searched item country and Selected Item country is same: "+searchedItem.get("country").trim());
+			if(searchedItem.get("country").trim().contains(keyword)) 
+				System.out.println("PASS: Selected item country contains keyword: "+keyword);			
+		}
+		else 
+			System.err.println("FAIL: country not present in selected item: "+searchedItem.get("country").trim());
+
+		
+		//comparing Average Rating
+		if(searchedItem.get("rating").trim().equals(selectedItem.get("rating").trim())) 
+			System.out.println("PASS: Searched item rating and Selected Item rating is same: "+selectedItem.get("rating").trim());
+		else 
+			System.err.println("FAIL: Searched item rating and Selected Item rating is different: "+selectedItem.get("rating").trim()+" vs "+searchedItem.get("rating").trim());
+		
+		//comparing rating count
+		if(searchedItem.get("ratingCount").trim().equals(selectedItem.get("ratingCount").trim())) 
+			System.out.println("PASS: Searched item ratingCount and Selected Item ratingCount is same: "+selectedItem.get("ratingCount").trim());
+		else 
+			System.err.println("FAIL: Searched item ratingCount and Selected Item ratingCount is different: "+selectedItem.get("ratingCount").trim()+" vs "+searchedItem.get("ratingCount").trim());
+
+		
+		sa.assertEquals(selectedItem.get("name").trim(), searchedItem.get("name").trim(),"Title mismatch (actual) "+selectedItem.get("name").trim()+" (expected) "+searchedItem.get("name").trim());
+		sa.assertEquals(selectedItem.get("rating").trim(), searchedItem.get("rating").trim(),"Average rating Value mismatch (actual) "+selectedItem.get("rating").trim()+" (expected) "+searchedItem.get("rating").trim());
+		sa.assertEquals(selectedItem.get("ratingCount").trim(), searchedItem.get("ratingCount").trim(),"Rating count mismatch (actual) "+selectedItem.get("ratingCount").trim()+" (expected) "+searchedItem.get("ratingCount").trim());
 	}
 }
