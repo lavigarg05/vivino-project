@@ -87,7 +87,7 @@ formatter.examples({
     },
     {
       "cells": [
-        "New Wines",
+        "All Wines",
         "http://www.vivino.com",
         "firefox"
       ],
@@ -98,7 +98,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 4822600,
+  "duration": 4267000,
   "status": "passed"
 });
 formatter.scenario({
@@ -174,7 +174,7 @@ formatter.match({
   "location": "CommonStepDefs.launchWebsite(String,String)"
 });
 formatter.result({
-  "duration": 7407351400,
+  "duration": 8694129500,
   "status": "passed"
 });
 formatter.match({
@@ -187,14 +187,14 @@ formatter.match({
   "location": "CommonStepDefs.searchForKeyword(String)"
 });
 formatter.result({
-  "duration": 3477652200,
+  "duration": 4532111500,
   "status": "passed"
 });
 formatter.match({
   "location": "CommonStepDefs.collectInfo()"
 });
 formatter.result({
-  "duration": 4338278300,
+  "duration": 5343961500,
   "status": "passed"
 });
 formatter.match({
@@ -207,36 +207,37 @@ formatter.match({
   "location": "CommonStepDefs.verifyItemdata(String)"
 });
 formatter.result({
-  "duration": 6183200,
+  "duration": 9816800,
   "status": "passed"
 });
 formatter.match({
   "location": "CommonStepDefs.selectItem()"
 });
 formatter.result({
-  "duration": 175268700,
+  "duration": 143309200,
   "status": "passed"
 });
 formatter.match({
   "location": "CommonStepDefs.selectItemInfo()"
 });
 formatter.result({
-  "duration": 33625464900,
+  "duration": 4103940200,
   "status": "passed"
 });
 formatter.match({
   "location": "CommonStepDefs.final_verification()"
 });
 formatter.result({
-  "duration": 884200,
+  "duration": 5292800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 173600,
-  "status": "passed"
+  "duration": 874042300,
+  "error_message": "java.lang.AssertionError: The following asserts failed:\nRating count mismatch (actual) 3375 ratings (expected) 3369 ratings\r\n\tat org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:38)\r\n\tat stepDefinitions.CommonStepDefs.After(CommonStepDefs.java:48)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)\r\n\tat java.lang.reflect.Method.invoke(Unknown Source)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)\r\n\tat cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)\r\n\tat cucumber.runtime.Runtime.runHooks(Runtime.java:212)\r\n\tat cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)\r\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)\r\n\tat cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)\r\n\tat org.junit.runners.Suite.runChild(Suite.java:128)\r\n\tat org.junit.runners.Suite.runChild(Suite.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.ExamplesRunner.run(ExamplesRunner.java:59)\r\n\tat org.junit.runners.Suite.runChild(Suite.java:128)\r\n\tat org.junit.runners.Suite.runChild(Suite.java:27)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.ScenarioOutlineRunner.run(ScenarioOutlineRunner.java:53)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.api.junit.Cucumber.run(Cucumber.java:100)\r\n\tat org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)\r\n\tat org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)\r\n",
+  "status": "failed"
 });
 formatter.before({
-  "duration": 292600,
+  "duration": 90100,
   "status": "passed"
 });
 formatter.scenario({
@@ -264,7 +265,7 @@ formatter.step({
 });
 formatter.step({
   "line": 8,
-  "name": "Search for \"New Wines\"",
+  "name": "Search for \"All Wines\"",
   "matchedColumns": [
     0
   ],
@@ -277,7 +278,7 @@ formatter.step({
 });
 formatter.step({
   "line": 10,
-  "name": "verify each wine data for \"New Wines\"",
+  "name": "verify each wine data for \"All Wines\"",
   "matchedColumns": [
     0
   ],
@@ -312,34 +313,34 @@ formatter.match({
   "location": "CommonStepDefs.launchWebsite(String,String)"
 });
 formatter.result({
-  "duration": 11492571200,
+  "duration": 10878219200,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "New Wines",
+      "val": "All Wines",
       "offset": 12
     }
   ],
   "location": "CommonStepDefs.searchForKeyword(String)"
 });
 formatter.result({
-  "duration": 505267000,
+  "duration": 462373300,
   "status": "passed"
 });
 formatter.match({
   "location": "CommonStepDefs.collectInfo()"
 });
 formatter.result({
-  "duration": 13050707500,
+  "duration": 13626668000,
   "error_message": "java.lang.AssertionError: Average rating for item 1 not found. Actual: null\r\n\tat org.junit.Assert.fail(Assert.java:88)\r\n\tat org.junit.Assert.failEquals(Assert.java:185)\r\n\tat org.junit.Assert.assertNotEquals(Assert.java:161)\r\n\tat stepDefinitions.CommonStepDefs.collectInfo(CommonStepDefs.java:109)\r\n\tat ✽.And collect information of all wines(SearchWine.feature:9)\r\n",
   "status": "failed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "New Wines",
+      "val": "All Wines",
       "offset": 27
     }
   ],
@@ -367,7 +368,7 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 51600,
+  "duration": 1506499600,
   "status": "passed"
 });
 });

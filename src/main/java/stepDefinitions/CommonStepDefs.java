@@ -34,7 +34,7 @@ public class CommonStepDefs {
 	  private int SelectedItem;
 	  private List<String> listLocations;
 	  private String keyword;
-	  Map<String,String> selectedItem=new HashMap<>();
+	  Map<String,String> selectedItem=new HashMap<String,String>();
 	  
 	  @Before()
 	  public void before() {

@@ -18,7 +18,7 @@
 6) All the above fields are also verified for the selected wine.
 
 7) It uses page object model where in all WebElements are stored in page wise classes in package src/main/java/objectRepository.
-8) Test is stored in 'features' folder
+8) Test is stored in 'features' folder --> SearchWine.feature
    Glue code is present in src/main/java/stepDefinitions
    Test Runner file is present at : /src/test/java/TestRunner.java
    To run the test --> TestRunner.java --> Run As --> JUnit Test

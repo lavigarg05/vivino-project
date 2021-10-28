@@ -21,7 +21,7 @@ public class GetBrowser {
 	}
 	
 	private void setDriver() {
-		
+		//if error is encountered here make sure --> project --> properties --> Java Compiler --> Compiler compliance level is 1.8 or greater
 		switch(browserName.toLowerCase()) {
 			case "chrome" :  chromeBrowser();
 							 break;
@@ -35,6 +35,9 @@ public class GetBrowser {
 
 	}
 	
+	/**
+	 * Description : creates driver object for chrome browser
+	 */
 	private void chromeBrowser() {
 		//Please provide chromedriver exe version as per current chrome installation
 		//this exe is for Chrome version 94
@@ -46,6 +49,10 @@ public class GetBrowser {
 		driver = new ChromeDriver();
 	}
 	
+	
+	/**
+	 * Description : creates driver object for firefox browser
+	 */
 	private void firefoxBrowser() {
 		//Please provide geckodriver exe version as per current firefox installation
 		//this exe is for firefox version 72

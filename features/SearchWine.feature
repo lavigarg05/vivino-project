@@ -16,5 +16,5 @@ Feature: Search for a wine based on keyword
     Examples: 
       | keyword    | website                  | browser   |
       | California | http://www.vivino.com    | chrome    |
-      | New Wines  | http://www.vivino.com    | firefox   |
+      | All Wines  | http://www.vivino.com    | firefox   |
 
